@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<layout>
+  <freed_adminhtml_freed_grid>
+
+    <reference name="content">
+
+      <block type="freed/adminhtml_freed_grid" name="freed" />
+
+    </reference>
+
+  </freed_adminhtml_freed_grid>
+    <freed_adminhtml_freed_grid1>
+
+    <reference name="content">
+
+      <block type="freed/adminhtml_freed_grid1" name="freed1" />
+
+    </reference>
+
+  </freed_adminhtml_freed_grid1>
+  <freed_adminhtml_freed_conadmin>
+
+    <reference name="content">
+
+      <block type="freed/adminhtml_freed_grid" name="freed" />
+
+    </reference>
+
+  </freed_adminhtml_freed_conadmin>
+  
+</layout>

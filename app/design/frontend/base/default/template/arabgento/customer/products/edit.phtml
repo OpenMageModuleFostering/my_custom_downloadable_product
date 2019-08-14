@@ -1,0 +1,60 @@
+<?php $prd=$this->getProduct(); ?>
+<?php $prdFreed=$this->getProductFreed();
+ ?>
+
+<?php if($prdFreed!=NULL){ ?>
+<div class="page-title">
+
+    <h1><?php echo Mage::helper('downloadable')->__('Edit My Private Orders') ?></h1>
+</div>
+<form action="<?php echo $this->getUrl('freed/cus/edit'); ?>" method="post" id="form-validate">
+   <input type="hidden" name='product_id' value='<?php echo $prd->getId(); ?>' />
+    <div class="fieldset">
+        <h2 class="legend">Edit your product</h2>
+        <ul class="form-list">
+            <li class="fields">
+                <div class="customer-name">
+    <div class="field name-firstname">
+        <label for="firstname" class="required">Price</label>
+        <div class="input-box">
+            <input type="text" id="price" name="price" value="<?php echo number_format($prd->getPrice(), 2); ?>"  title="First Name" class="input-text required-entry"  />
+        </div>
+    </div>
+    <div class="field name-lastname">
+        <label for="lastname" class="required">offering for sell</label>
+        <div class="input-box">
+            <select id="for_sell" name="for_sell" title="offering for sell" >
+               <option value="0">No</option>
+               <option value="1">Yes</option>
+            </select>
+            <script type="text/javascript">
+             //<![CDATA[
+			       
+                   document.getElementById("for_sell").value=<?php echo $prdFreed->getPiedClient(); ?>;
+                //]]>
+             </script>
+        </div>
+    </div>
+</div>
+    <div class="actions">
+    <br /><br />
+       <button type="submit" title="Confirm" class="button btn-cart"><span><span>Confirm</span></span></button>
+    </div>
+    </div>        
+    
+    </li>
+            </ul>
+</form>
+<?php }else
+{
+?>
+<div class="page-title">
+<h1><?php echo Mage::helper('downloadable')->__('Edit My Private Orders') ?></h1>
+</div>
+
+<?php
+echo "its's not in your collection of private product";
+}
+ ?>
+
+

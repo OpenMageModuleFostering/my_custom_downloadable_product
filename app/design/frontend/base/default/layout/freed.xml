@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+Supported layout update handles (action):
+- catalog_product_gallery
+- catalog_product_compare_index
+
+Supported layout update handles (special):
+- default
+- catalog_category_default
+- catalog_category_layered
+- catalog_product_view
+
+-->
+<layout version="0.1.0">
+
+<!--
+Category default layout
+-->
+
+
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="freed"><name>freed_cus_prprd</name><path>freed/cus/prprd</path><label>My Private Orders</label></action>
+        </reference>
+    </customer_account>
+    <freed_cus_prprd translate="label">
+        <label>Customer My Account Private Orders</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="freed/privateproducts_list" name="freed_privateproducts_list" template="arabgento/customer/products/list.phtml" />
+        </reference>
+        <reference name="root">
+            <action method="setHeaderTitle" translate="title" module="downloadable"><title>My Private Orders</title></action>
+        </reference>
+    </freed_cus_prprd>
+    <freed_cus_edit translate="label">
+        <label>Customer My Account Private Orders</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="freed/privateproducts_edit" name="freed_privateproducts_edit" template="arabgento/customer/products/edit.phtml" />
+        </reference>
+        <reference name="root">
+            <action method="setHeaderTitle" translate="title" module="downloadable"><title>My Private Orders</title></action>
+        </reference>
+    </freed_cus_edit>
+</layout>

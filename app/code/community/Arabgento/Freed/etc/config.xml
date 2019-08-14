@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Arabgento_Freed>
+			<version>1.0.0</version>
+			<depends>
+		          <Mage_Core/>
+			</depends>
+		</Arabgento_Freed>
+	</modules>
+
+    <frontend>
+    
+    <routers>
+      <freed>
+
+        <use>standard</use>
+             <args>
+              <module>Arabgento_Freed</module>
+              <frontName>freed</frontName>
+              </args>
+     </freed>
+    </routers>
+        <layout>
+            <updates>
+                <freed>
+                    <file>freed.xml</file>
+                </freed>
+            </updates>
+        </layout>
+    </frontend>
+
+    <admin>
+    
+    <routers>
+      <freed>
+
+        <use>admin</use>
+             <args>
+              <module>Arabgento_Freed</module>
+              <frontName>freed</frontName>
+              </args>
+     </freed>
+    </routers>
+        <layout>
+            <updates>
+                <freed>
+                    <file>freed.xml</file>
+                </freed>
+            </updates>
+        </layout>
+    </admin>
+ 
+    <adminhtml>
+
+    <menu>
+
+      <arabgento module="freed">
+
+        <title>ArabGento</title>
+
+        <sort_order>71</sort_order>               
+
+        <children>
+
+          <item1 module="freed">
+
+            <title>Manage Private Orders</title>
+
+            <sort_order>1</sort_order>
+
+            <action>freed/adminhtml_freed/grid</action>
+
+          </item1>
+        </children>
+
+
+
+
+
+      </arabgento>
+
+    </menu>
+
+    <acl>
+
+      <resources>
+
+        <all>
+
+          <title>Allow Everything</title>
+
+	</all>
+
+        <admin>
+
+          <children>
+
+            <freed>
+
+              <title>Freed Module</title>
+
+              <sort_order>10</sort_order>
+
+            </freed>
+
+          </children>
+
+        </admin>
+
+      </resources>
+
+    </acl>
+
+    <layout>
+
+      <updates>
+
+        <freed>
+
+          <file>freed.xml</file>
+
+        </freed>
+
+      </updates>
+
+    </layout>    
+
+    </adminhtml> 
+ 
+ 
+  <global>
+  	<models>
+      <freed>
+        <class>Arabgento_Freed_Model</class>
+        <resourceModel>freed_mysql4</resourceModel>
+      </freed>
+      <freed_mysql4>
+        <class>Arabgento_Freed_Model_Mysql4</class>
+        <entities>
+          <freed>
+            <table>freed</table>
+          </freed>
+        </entities>
+      </freed_mysql4>
+    </models>
+	<resources>
+      <freed_setup>
+        <setup>
+          <module>Arabgento_Freed</module>
+        </setup>
+        <connection>
+          <use>core_setup</use>
+        </connection>
+      </freed_setup>
+      <freed_write>
+        <connection>
+          <use>core_write</use>
+        </connection>
+      </freed_write>
+      <freed_read>
+        <connection>
+          <use>core_read</use>
+        </connection>
+      </freed_read>
+    </resources>
+    <blocks>
+      <freed>
+        <class>Arabgento_Freed_Block</class>
+      </freed>
+      
+           
+    </blocks>
+       
+	   <helpers>
+            <freed>
+                <class>Arabgento_Freed_Helper</class>
+            </freed>
+        </helpers>
+        
+    <events>
+            <sales_order_place_before>
+                <observers>
+                    <change_order>
+                        <type>singleton</type>
+                        <class>freed/observer</class>
+                        <method>change_order</method>
+                    </change_order>
+                </observers>
+            </sales_order_place_before>
+            <sales_order_place_after>
+                <observers>
+                    <change_pur>
+                        <type>singleton</type>
+                        <class>freed/observer</class>
+                        <method>change_pur</method>
+                    </change_pur>
+                </observers>
+            </sales_order_place_after>
+            <catalog_product_save_after>
+	      <observers>
+		 <change_link>
+		        <type>singleton</type>
+			<class>freed/observer</class>
+			<method>change_link</method>
+		</change_link>
+	    </observers>
+	  </catalog_product_save_after>
+    </events>
+    <template>
+        <email>
+            <freed_private_order module="freed">
+                <label>custom email module</label>
+                <file>freed_private_order.html</file>
+                <type>html</type>
+            </freed_private_order>
+        </email>
+    </template>
+</global>
+
+</config>
