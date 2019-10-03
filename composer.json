@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/My_Custom_Downloadable_Product",
+    "name": "openmage-module-fostering\/my_custom_downloadable_product",
     "type": "magento-module",
-    "license": "OSL",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "manage and create custom downloadable product for your client (from info of client create the product)",
     "authors": [
