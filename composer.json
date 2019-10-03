@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/My_Custom_Downloadable_Product",
+    "name": "OpenMageModuleFostering\/My_Custom_Downloadable_Product",
     "type": "magento-module",
     "license": "OSL",
     "homepage": "",
     "description": "manage and create custom downloadable product for your client (from info of client create the product)",
     "authors": [
-    {
-        "name": "arabgento community",
-        "email": "contact@arabgento.com"
-    }
-],
+        {
+            "name": "arabgento community",
+            "email": "contact@arabgento.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
